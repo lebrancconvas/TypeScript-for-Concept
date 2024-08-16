@@ -25,6 +25,7 @@ Learning Low Level Concept by using TypeScript Programming Language as it can be
   - [[EN] Fantasy Console (Low Byte Productions)](https://www.youtube.com/playlist?list=PLP29wDx6QmW6S4B2oQUN-fI-idy6UcesG)
   - [[EN] Bus Pirate Adventures (Low Byte Productions)](https://www.youtube.com/playlist?list=PLP29wDx6QmW5zKp0hGR7kvwYlfl8YlxLP)
   - [[EN] 16-Bit Virtual Machine (Low Byte Productions)](https://www.youtube.com/playlist?list=PLP29wDx6QmW5DdwpdwHCRJsEubS5NrQ9b)
+  - [[EN] Bit-Packer (Low Level Productions)](https://www.youtube.com/playlist?list=PLP29wDx6QmW5xJ6yz_MInDL_AnLbpafyL)
 - Youtube Video
   - [[EN] I wrote a GameBoy game in TypeScript (And it runs on real hardware!) (Low Byte Productions)](https://www.youtube.com/watch?v=TIlx5nBnx-o)
   - [[EN] Building FPGA Hardware Using TypeScript: Driving An RGB LED Panel (Low Byte Productions)](https://www.youtube.com/watch?v=Otx96lJnLeo)
