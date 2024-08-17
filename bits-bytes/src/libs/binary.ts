@@ -16,7 +16,7 @@ export class Binary {
     return total;
   }
 
-  and(other: Binary): Binary {
+  bitFill(other: Binary): [Binary, Binary] {
     let emptySlotLength = Math.abs(this.bits.length - other.bits.length);
     for(let i = 0; i < emptySlotLength; i++) {
       if(this.bits.length > other.bits.length) {
@@ -25,10 +25,15 @@ export class Binary {
         this.bits.unshift(0);
       }
     }
+    return [new Binary(this.bits), new Binary(other.bits)];
+  };
+
+  and(other: Binary): Binary {
+    let [bit01, bit02] = this.bitFill(other);
 
     let result: Bit[] = [];
-    this.bits.forEach((bit, i) => {
-      if(bit === 0 || other.bits[i] === 0) result.push(0);
+    bit01.bits.forEach((bit, i) => {
+      if(bit === 0 || bit02.bits[i] === 0) result.push(0);
       else result.push(1);
     });
 
@@ -36,18 +41,11 @@ export class Binary {
   }
 
   or(other: Binary): Binary {
-    let emptySlotLength = Math.abs(this.bits.length - other.bits.length);
-    for(let i = 0; i < emptySlotLength; i++) {
-      if(this.bits.length > other.bits.length) {
-        other.bits.unshift(0);
-      } else if(other.bits.length > this.bits.length) {
-        this.bits.unshift(0);
-      }
-    }
+    let [bit01, bit02] = this.bitFill(other);
 
     let result: Bit[] = [];
-    this.bits.forEach((bit, i) => {
-      if(bit === 1 || other.bits[i] === 1) result.push(1);
+    bit01.bits.forEach((bit, i) => {
+      if(bit === 1 || bit02.bits[i] === 1) result.push(1);
       else result.push(0);
     });
 
@@ -64,18 +62,11 @@ export class Binary {
   };
 
   xor(other: Binary): Binary {
-    let emptySlotLength = Math.abs(this.bits.length - other.bits.length);
-    for(let i = 0; i < emptySlotLength; i++) {
-      if(this.bits.length > other.bits.length) {
-        other.bits.unshift(0);
-      } else if(other.bits.length > this.bits.length) {
-        this.bits.unshift(0);
-      }
-    }
+    let [bit01, bit02] = this.bitFill(other);
 
     let result: Bit[] = [];
-    this.bits.forEach((bit, i) => {
-      if(bit !== other.bits[i]) result.push(1);
+    bit01.bits.forEach((bit, i) => {
+      if(bit !== bit02.bits[i]) result.push(1);
       else result.push(0);
     });
 
