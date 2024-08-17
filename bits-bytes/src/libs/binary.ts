@@ -16,6 +16,16 @@ export class Binary {
     return total;
   }
 
+  static fromUnsigned(num: number): Binary {
+    let result: Bit[] = [];
+    while(num > 0) {
+      let bit = num % 2 as Bit;
+      result.unshift(bit);
+      num = Math.floor(num / 2);
+    }
+    return new Binary(result);
+  };
+
   zeroExtend(other: Binary): [Binary, Binary] {
     let emptySlotLength = Math.abs(this.bits.length - other.bits.length);
     for(let i = 0; i < emptySlotLength; i++) {
