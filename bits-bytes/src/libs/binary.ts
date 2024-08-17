@@ -16,7 +16,7 @@ export class Binary {
     return total;
   }
 
-  bitFill(other: Binary): [Binary, Binary] {
+  zeroExtend(other: Binary): [Binary, Binary] {
     let emptySlotLength = Math.abs(this.bits.length - other.bits.length);
     for(let i = 0; i < emptySlotLength; i++) {
       if(this.bits.length > other.bits.length) {
@@ -29,7 +29,7 @@ export class Binary {
   };
 
   and(other: Binary): Binary {
-    let [bit01, bit02] = this.bitFill(other);
+    let [bit01, bit02] = this.zeroExtend(other);
 
     let result: Bit[] = [];
     bit01.bits.forEach((bit, i) => {
@@ -41,7 +41,7 @@ export class Binary {
   }
 
   or(other: Binary): Binary {
-    let [bit01, bit02] = this.bitFill(other);
+    let [bit01, bit02] = this.zeroExtend(other);
 
     let result: Bit[] = [];
     bit01.bits.forEach((bit, i) => {
@@ -62,7 +62,7 @@ export class Binary {
   };
 
   xor(other: Binary): Binary {
-    let [bit01, bit02] = this.bitFill(other);
+    let [bit01, bit02] = this.zeroExtend(other);
 
     let result: Bit[] = [];
     bit01.bits.forEach((bit, i) => {
