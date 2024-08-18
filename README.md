@@ -37,6 +37,10 @@ Learning Low Level Concept by using TypeScript Programming Language as it can be
 
 ### Implementing Low Level Concepts with JavaScript (JS) / TypeScript (TS)
 
+- **Github Repository**
+  - [[EN] simpleCPU (lallenlowe)](https://github.com/lallenlowe/simpleCPU)
+  - [[EN] mossy-cpu (SlideeScherz)](https://github.com/SlideeScherz/mossy-cpu)
+  - [[EN] RISC-V-Emulator (lowbyteproductions)](https://github.com/lowbyteproductions/RISC-V-Emulator)
 - **Youtube Channel**
   - [[EN] Low Byte Productions](https://www.youtube.com/@LowByteProductions) ([Video](https://www.youtube.com/@LowByteProductions/videos)) ([Playlist](https://www.youtube.com/@LowByteProductions/playlists))
 - **Youtube Playlist**
