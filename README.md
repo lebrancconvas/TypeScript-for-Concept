@@ -34,7 +34,7 @@ Learning Low Level Concept by using TypeScript Programming Language as it can be
   - [[EN] Signal and Systems (Neso Academy)](https://www.youtube.com/playlist?list=PLBlnK6fEyqRhG6s3jYIU48CqsT5cyiDTO)
   - [[EN] Microprocessors and Microcontrollers (Neso Academy)](https://www.youtube.com/playlist?list=PLBlnK6fEyqRgyFCCgqdcBowmSp_BTKs4F)
 
-### Implement Low Level Concepts with JavaScript (JS) / TypeScript (TS)
+### Implementing Low Level Concepts with JavaScript (JS) / TypeScript (TS)
 
 - **Youtube Channel**
   - [[EN] Low Byte Productions](https://www.youtube.com/@LowByteProductions) ([Video](https://www.youtube.com/@LowByteProductions/videos)) ([Playlist](https://www.youtube.com/@LowByteProductions/playlists))
