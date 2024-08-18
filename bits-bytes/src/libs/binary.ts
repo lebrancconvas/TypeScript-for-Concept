@@ -7,7 +7,7 @@ export class Binary {
     this.bits = bits;
   }
 
-  convertToDecimal(): number {
+  toDecimal(): number {
     let total = 0;
     this.bits.forEach((bit, i) => {
       let power = this.bits.length - 1 - i;
@@ -38,6 +38,7 @@ export class Binary {
     return [new Binary(this.bits), new Binary(other.bits)];
   };
 
+  // Opearators
   and(other: Binary): Binary {
     let [bit01, bit02] = this.zeroExtend(other);
 
