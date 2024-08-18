@@ -25,6 +25,8 @@ Learning Low Level Concept by using TypeScript Programming Language as it can be
   - [[EN] Merlin Wellington](https://www.youtube.com/@wizardcraftcode) ([Video](https://www.youtube.com/@wizardcraftcode/videos)) ([Playlist](https://www.youtube.com/@wizardcraftcode/playlists))
   - [[EN] ControllersTech](https://www.youtube.com/@ControllersTech) ([Video](https://www.youtube.com/@ControllersTech/videos)) ([Playlist](https://www.youtube.com/@ControllersTech/playlists))
   - [[EN] Core Dumped](https://www.youtube.com/@CoreDumpped) ([Video](https://www.youtube.com/@CoreDumpped/videos)) ([Playlist](https://www.youtube.com/@CoreDumpped/playlists))
+  - [[EN] Blitz](https://www.youtube.com/@blitz8229) ([Video](https://www.youtube.com/@blitz8229/videos)) ([Playlist](https://www.youtube.com/@blitz8229/playlists))
+  - [[EN] nandland](https://www.youtube.com/@Nandland) ([Video](https://www.youtube.com/@Nandland/videos)) ([Playlist](https://www.youtube.com/@Nandland/playlists))
 - **Youtube Playlist**
   - [[EN] [CS] Reverse Engineering and Low-Level Learning (Lebranc Convas)](https://www.youtube.com/playlist?list=PLaA8NIuqRmKHmfoByS7BPUWN7Fj6W2hNt)
   - [[EN] Analog Electronics (Neso Academy)](https://www.youtube.com/playlist?list=PLBlnK6fEyqRiw-GZRqfnlVIBz9dxrqHJS)
