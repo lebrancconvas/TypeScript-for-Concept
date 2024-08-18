@@ -83,5 +83,12 @@ export class Binary {
 
     return new Binary(result);
   };
+
+  add(other: Binary): Binary {
+    let num01 = this.toDecimal();
+    let num02 = other.toDecimal();
+    let result = Binary.fromUnsigned(num01 + num02);
+    return result;
+  }
 };
 
