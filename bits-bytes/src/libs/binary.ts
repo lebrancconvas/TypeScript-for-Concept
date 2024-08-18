@@ -7,7 +7,7 @@ export class Binary {
     this.bits = bits;
   }
 
-  convertToDecimal(): number {
+  toDecimal(): number {
     let total = 0;
     this.bits.forEach((bit, i) => {
       let power = this.bits.length - 1 - i;
