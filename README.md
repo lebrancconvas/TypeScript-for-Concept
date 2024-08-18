@@ -16,13 +16,17 @@ Learning Low Level Concept by using TypeScript Programming Language as it can be
 - **Youtube Playlist**
   - [[EN / TH] [CS] Lang: TypeScript (Lebranc Convas)](https://www.youtube.com/playlist?list=PLaA8NIuqRmKFwJyTHzq_-v3mCe7Bjqlq3)
 
-### Hardware / Electronic Engineering / Low Level
+### Hardware / Electronic Engineering / Low Level Concept
 
 - **Youtube Channel**
   - [[EN] Neso Academy](https://www.youtube.com/@nesoacademy) ([Video](https://www.youtube.com/@nesoacademy/videos)) ([Playlist](https://www.youtube.com/@nesoacademy/playlists))
   - [[EN] Low Level Learning](https://www.youtube.com/@LowLevelLearning) ([Video](https://www.youtube.com/@LowLevelLearning/videos)) ([Playlist](https://www.youtube.com/@LowLevelLearning/playlists))
   - [[EN] Laurie Wired](https://www.youtube.com/@lauriewired) ([Video](https://www.youtube.com/@lauriewired/videos)) ([Playlist](https://www.youtube.com/@lauriewired/playlists))
+  - [[EN] Merlin Wellington](https://www.youtube.com/@wizardcraftcode) ([Video](https://www.youtube.com/@wizardcraftcode/videos)) ([Playlist](https://www.youtube.com/@wizardcraftcode/playlists))
+  - [[EN] ControllersTech](https://www.youtube.com/@ControllersTech) ([Video](https://www.youtube.com/@ControllersTech/videos)) ([Playlist](https://www.youtube.com/@ControllersTech/playlists))
+  - [[EN] Core Dumped](https://www.youtube.com/@CoreDumpped) ([Video](https://www.youtube.com/@CoreDumpped/videos)) ([Playlist](https://www.youtube.com/@CoreDumpped/playlists))
 - **Youtube Playlist**
+  - [[EN] [CS] Reverse Engineering and Low-Level Learning (Lebranc Convas)](https://www.youtube.com/playlist?list=PLaA8NIuqRmKHmfoByS7BPUWN7Fj6W2hNt)
   - [[EN] Analog Electronics (Neso Academy)](https://www.youtube.com/playlist?list=PLBlnK6fEyqRiw-GZRqfnlVIBz9dxrqHJS)
   - [[EN] Digital Electronics (Neso Academy)](https://www.youtube.com/playlist?list=PLBlnK6fEyqRjMH3mWf6kwqiTbT798eAOm)
   - [[EN] Signal and Systems (Neso Academy)](https://www.youtube.com/playlist?list=PLBlnK6fEyqRhG6s3jYIU48CqsT5cyiDTO)
