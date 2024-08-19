@@ -15,7 +15,7 @@
     "typescript": "^5.5.4"
   },
   "dependencies": {
-    "gateware-ts": "^0.2.0",
+    "gateware-ts": "^0.4.0-beta.1",
     "ts-node": "^10.9.2"
   }
 }
