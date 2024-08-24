@@ -42,7 +42,7 @@ export const comparator1 = (input1: BitElement, input2: BitElement): [BitElement
   return [lessThan, equal, greaterThan];
 };
 
-export class Arithmetic {
+export class Arithmatic {
   static halfAdder = halfAdder;
   static fullAdder = fullAdder;
 };

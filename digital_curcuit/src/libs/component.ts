@@ -3,7 +3,7 @@
  */
 
 import { Gate } from './gate';
-import { Arithmetic } from './arithmatic';
+import { Arithmatic } from './arithmatic';
 import type { BitElement } from '../@types';
 
 /**
@@ -102,5 +102,5 @@ export class Component {
   static demux1 = demux1;
   static byteMaker = byteMaker;
   static Gate = Gate;
-  static Arithmetic = Arithmetic;
+  static Arithmatic = Arithmatic;
 };
