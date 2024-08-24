@@ -101,6 +101,7 @@ export class Component {
   static mux1 = mux1;
   static demux1 = demux1;
   static byteMaker = byteMaker;
+  static byteSplitter = byteSplitter;
   static Gate = Gate;
   static Arithmatic = Arithmatic;
 };
