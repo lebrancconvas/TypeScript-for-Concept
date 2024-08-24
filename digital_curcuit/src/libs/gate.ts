@@ -1,4 +1,5 @@
-import type { BitElement } from '../@types';
+import type { BitElement } from "../@types";
+import { Custom } from "./gate-custom";
 
 export const not = (input: BitElement) => (~input & 1) && 1;
 export const and = (input1: BitElement, input2: BitElement) => input1 && input2;
@@ -16,4 +17,5 @@ export class Gate {
   static nor = nor;
   static xor = xor;
   static xnor = xnor;
+  static Custom = Custom;
 };
