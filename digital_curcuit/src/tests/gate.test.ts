@@ -66,3 +66,20 @@ describe("Test Logic XOR Gate", () => {
   });
 });
 
+describe("Test Logic XNOR Gate", () => {
+  test("Test XNOR Gate - Input: 0, 0 must return 1", () => {
+    expect(Gate.xnor(0, 0)).toBe(1);
+  });
+
+  test("Test XNOR Gate - Input: 0, 1 must return 0", () => {
+    expect(Gate.xnor(0, 1)).toBe(0);
+  });
+
+  test("Test XNOR Gate - Input: 1, 0 must return 0", () => {
+    expect(Gate.xnor(1, 0)).toBe(0);
+  });
+
+  test("Test XNOR Gate - Input: 1, 1 must return 1", () => {
+    expect(Gate.xnor(1, 1)).toBe(1);
+  });
+});
