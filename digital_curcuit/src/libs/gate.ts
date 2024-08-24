@@ -5,8 +5,8 @@ export const and = (input1: BitElement, input2: BitElement) => input1 && input2;
 export const or = (input1: BitElement, input2: BitElement) => input1 || input2;
 export const nand = (input1: BitElement, input2: BitElement) => not(and(input1, input2));
 export const nor = (input1: BitElement, input2: BitElement) => not(or(input1, input2));
-export const xor = (input1: BitElement, input2: BitElement) => input1 ^ input2;
-export const xnor = (input1: BitElement, input2: BitElement) => ~(input1 ^ input2) & 1;
+export const xor = (input1: BitElement, input2: BitElement) => (input1 ^ input2) && 1 as BitElement;
+export const xnor = (input1: BitElement, input2: BitElement) => (~(input1 ^ input2) & 1) && 1 as BitElement;
 
 export class Gate {
   static not = not;
