@@ -2,15 +2,22 @@ import { Gate } from './gate';
 import type { BitElement } from '../@types';
 
 /**
- * Switcher Component is a simple component that takes two inputs and a control signal.
+ * Switcher Component is a simple component that takes input and an enabled.
  * @param enable Use to enable (1) or disable (0) the input.
  * @param input The input signal.
- * @returns
+ * @return The output signal.
  */
 export const switcher = (enable: BitElement, input: BitElement) => {
   return Gate.and(enable, input);
 };
 
+/**
+ * 1-Bit Multiplexer (Mux) is a simple component that takes two inputs and a selector.
+ * @param selector Use to select which input to pass to the output. If selector is 0, input1 will be passed to the output. If selector is 1, input2 will be passed to the output.
+ * @param input1 The first input signal.
+ * @param input2 The second input signal.
+ * @return The output signal.
+ */
 export const mux1 = (selector: BitElement, input1: BitElement, input2: BitElement) => {
   return Gate.or(Gate.and(Gate.not(selector), input1), Gate.and(selector, input2));
 };
