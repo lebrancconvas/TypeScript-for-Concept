@@ -37,7 +37,7 @@ export const fullAdder = (input1: BitElement, input2: BitElement, input3: BitEle
  */
 export const comparator1 = (input1: BitElement, input2: BitElement): [BitElement, BitElement, BitElement] => {
   let lessThan = Gate.and(Gate.not(input1), input2);
-  let equal = Gate.xor(input1, input2);
+  let equal = Gate.xnor(input1, input2);
   let greaterThan = Gate.and(input1, Gate.not(input2));
   return [lessThan, equal, greaterThan];
 };
