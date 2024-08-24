@@ -66,6 +66,24 @@ describe("Test Logic NAND Gate", () => {
   });
 });
 
+describe("Test Logic NOR Gate", () => {
+  test("Test NOR Gate - Input: 0, 0 must return 1", () => {
+    expect(Gate.nor(0, 0)).toBe(1);
+  });
+
+  test("Test NOR Gate - Input: 0, 1 must return 0", () => {
+    expect(Gate.nor(0, 1)).toBe(0);
+  });
+
+  test("Test NOR Gate - Input: 1, 0 must return 0", () => {
+    expect(Gate.nor(1, 0)).toBe(0);
+  });
+
+  test("Test NOR Gate - Input: 1, 1 must return 0", () => {
+    expect(Gate.nor(1, 1)).toBe(0);
+  });
+});
+
 describe("Test Logic XOR Gate", () => {
   test("Test XOR Gate - Input: 0, 0 must return 0", () => {
     expect(Gate.xor(0, 0)).toBe(0);
