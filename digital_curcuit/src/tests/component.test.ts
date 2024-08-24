@@ -68,3 +68,17 @@ describe("Test Component: 1-Bit Demultiplexer (Demux", () => {
     expect(Component.demux1(1, 1)).toEqual({ output1: 0, output2: 1 });
   })
 });
+
+describe("Test Component: Byte Maker", () => {
+  test("Test Byte Maker - Unsigned 0000_0000 must return 0", () => {
+    expect(Component.byteMaker([0, 0, 0, 0, 0, 0, 0, 0], true)).toBe(0);
+  })
+
+  test("Test Byte Maker - Signed 0000_0000 must return 0", () => {
+    expect(Component.byteMaker([0, 0, 0, 0, 0, 0, 0, 0], false)).toBe(0);
+  })
+
+  test("Test Byte Maker - Unsigned 1111_1111 must return 255", () => {
+    expect(Component.byteMaker([1, 1, 1, 1, 1, 1, 1, 1], true)).toBe(255);
+  })
+});
