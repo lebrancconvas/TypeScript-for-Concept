@@ -70,6 +70,16 @@ describe("Test Component: 1-Bit Demultiplexer (Demux", () => {
 });
 
 describe("Test Component: Byte Maker", () => {
+  test("Test Byte Maker - Less than 8 bits must throw an error", () => {
+    const errorMessage = "Invalid number of bits, Expected 8 bits.";
+    expect(() => Component.byteMaker([0, 0, 0, 0, 0, 0, 0])).toThrowError(errorMessage);
+  })
+
+  test("Test Byte Maker - More than 8 bits must throw an error", () => {
+    const errorMessage = "Invalid number of bits, Expected 8 bits.";
+    expect(() => Component.byteMaker([0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1])).toThrowError(errorMessage);
+  })
+
   test("Test Byte Maker - Unsigned 0000_0000 must return 0", () => {
     expect(Component.byteMaker([0, 0, 0, 0, 0, 0, 0, 0], true)).toBe(0);
   })
