@@ -24,7 +24,7 @@ export const demux1 = (selector: BitElement, input: BitElement) => {
 
 export const byteMaker = (bits: BitElement[], isUnsigned: boolean = true) => {
   if(bits.length !== 8) {
-    throw new Error("Invalid number of bits. Expected 8 bits.");
+    throw new Error("Invalid number of bits, Expected 8 bits.");
   }
 
   let result = 0;
