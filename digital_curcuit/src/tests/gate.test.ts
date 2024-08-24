@@ -48,3 +48,21 @@ describe("Test Logic OR Gate", () => {
   });
 })
 
+describe("Test Logic XOR Gate", () => {
+  test("Test XOR Gate - Input: 0, 0 must return 0", () => {
+    expect(Gate.xor(0, 0)).toBe(0);
+  });
+
+  test("Test XOR Gate - Input: 0, 1 must return 1", () => {
+    expect(Gate.xor(0, 1)).toBe(1);
+  });
+
+  test("Test XOR Gate - Input: 1, 0 must return 1", () => {
+    expect(Gate.xor(1, 0)).toBe(1);
+  });
+
+  test("Test XOR Gate - Input: 1, 1 must return 0", () => {
+    expect(Gate.xor(1, 1)).toBe(0);
+  });
+});
+
