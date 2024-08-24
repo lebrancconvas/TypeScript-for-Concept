@@ -24,14 +24,18 @@ export const demux1 = (selector: BitElement, input: BitElement) => {
 
 export const byteMaker = (bits: BitElement[], isUnsigned: boolean = true) => {
   if(bits.length !== 8) {
-    throw new Error("Invalid number of BitElements. Expected 8 BitElements.");
+    throw new Error("Invalid number of bits. Expected 8 bits.");
   }
 
   let result = 0;
 
-  bits.forEach((bit: BitElement, index: number) => {
-    result += bit * Math.pow(2, bits.length - index - 1);
-  })
+  for(let i = 0; i < bits.length; i++) {
+    if(isUnsigned === false && i === 0) {
+      result += -(bits[i] * Math.pow(2, (bits.length - 1) - i));
+      continue;
+    }
+    result += bits[i] * Math.pow(2, (bits.length - 1) - i);
+  }
 
   return result;
 };
