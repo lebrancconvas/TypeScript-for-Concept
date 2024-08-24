@@ -99,14 +99,14 @@ describe("Test Component: Byte Maker", () => {
 
 describe("Test Component: Byte Splitter", () => {
   test("Test Byte Splitter - 0 must return 0000_0000", () => {
-    expect(Component.byteSplitter(0)).toEqual([0, 0, 0, 0, 0, 0, 0, 0]);
+    expect(Component.byteSplitter(0)).toEqual([[0, 0, 0, 0, 0, 0, 0, 0], true]);
   })
 
   test("Test Byte Splitter - 255 must return 1111_1111", () => {
-    expect(Component.byteSplitter(255)).toEqual([1, 1, 1, 1, 1, 1, 1, 1]);
+    expect(Component.byteSplitter(255)).toEqual([[1, 1, 1, 1, 1, 1, 1, 1], true]);
   })
 
   test("Test Byte Splitter - -1 must return 1111_1111", () => {
-    expect(Component.byteSplitter(-1)).toEqual([1, 1, 1, 1, 1, 1, 1, 1]);
+    expect(Component.byteSplitter(-1)).toEqual([[1, 1, 1, 1, 1, 1, 1, 1], false]);
   })
 });
