@@ -1,5 +1,4 @@
 /**
- *  @task [RED] Implement a byte spliter function and cover to both unsigned and signed numbers.
  */
 
 import { Gate } from './gate';
