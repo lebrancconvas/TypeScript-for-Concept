@@ -81,4 +81,8 @@ describe("Test Component: Byte Maker", () => {
   test("Test Byte Maker - Unsigned 1111_1111 must return 255", () => {
     expect(Component.byteMaker([1, 1, 1, 1, 1, 1, 1, 1], true)).toBe(255);
   })
+
+  test("Test Byte Maker - Signed 1111_1111 must return -1", () => {
+    expect(Component.byteMaker([1, 1, 1, 1, 1, 1, 1, 1], false)).toBe(-1);
+  })
 });
