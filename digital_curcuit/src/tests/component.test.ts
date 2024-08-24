@@ -11,4 +11,8 @@ describe("Test Component: Switcher", () => {
   test("Test Switcher - Enable: 1, Input: 0 must return 0", () => {
     expect(Component.switcher(1, 0)).toBe(0);
   })
+
+  test("Test Switcher - Enable: 1, Input: 1 must return 1", () => {
+    expect(Component.switcher(1, 1)).toBe(1);
+  })
 });
