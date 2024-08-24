@@ -27,3 +27,9 @@ export const fullAdder = (input1: BitElement, input2: BitElement, input3: BitEle
   let carry = Gate.or(Gate.and(input1, input2), Gate.and(Gate.xor(input1, input2), input3));
   return [sum, carry];
 };
+
+
+export class Arithmetic {
+  static halfAdder = halfAdder;
+  static fullAdder = fullAdder;
+};
