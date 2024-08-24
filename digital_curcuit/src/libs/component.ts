@@ -70,10 +70,10 @@ export const byteMaker = (bits: BitElement[], isUnsigned: boolean = true) => {
 /**
  * Byte Splitter is a simple component that takes a byte (number) and return an array of bits (length: 8).
  * @name byteSplitter
- * @param byte
+ * @param byte the byte number between 0 to 255 (Unsigned) or -128 to 127. (signed)
  * @return bits (BitElement[])
  */
-export const byteSplitter = (byte: number) => {
+export const byteSplitter = (byte: number): [BitElement[], boolean] => {
   let bits: BitElement[] = [];
   let isUnsigned = true;
 
@@ -92,7 +92,7 @@ export const byteSplitter = (byte: number) => {
     bits.unshift(0);
   }
 
-  return bits;
+  return [bits, isUnsigned];
 };
 
 export class Component {
