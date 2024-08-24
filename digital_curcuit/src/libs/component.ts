@@ -17,8 +17,8 @@ export const mux1 = (selector: BitElement, input1: BitElement, input2: BitElemen
 
 export const demux1 = (selector: BitElement, input: BitElement) => {
   return {
-    out1: Gate.and(Gate.not(selector), input),
-    out2: Gate.and(selector, input),
+    output1: Gate.and(Gate.not(selector), input),
+    output2: Gate.and(selector, input),
   };
 };
 
