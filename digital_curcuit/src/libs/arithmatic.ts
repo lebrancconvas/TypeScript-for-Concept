@@ -45,4 +45,5 @@ export const comparator1 = (input1: BitElement, input2: BitElement): [BitElement
 export class Arithmatic {
   static halfAdder = halfAdder;
   static fullAdder = fullAdder;
+  static comparator1 = comparator1;
 };
