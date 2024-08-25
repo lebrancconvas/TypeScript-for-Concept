@@ -1,12 +1,13 @@
 import { createMemory } from "./memory";
+import { Instruction } from "./instruction";
 
 export class CPU {
-  memory: any;
+  memory: DataView;
   registerNames: string[];
   registers: DataView;
   registerMap: any;
 
-  constructor(memory: any) {
+  constructor(memory: DataView) {
     this.memory = memory;
 
     /**
@@ -40,6 +41,15 @@ export class CPU {
       map[name] = i * 2;
       return map;
     }, {});
+
+  }
+
+  debug() {
+    console.log('===== STEP =====');
+    this.registerNames.forEach(name => {
+      console.log(`${name}: 0x${this.getRegister(name).toString(16).padStart(4, '0')}`);
+    });
+    console.log('================\n');
   }
 
   getRegister(name: string): number {
@@ -56,5 +66,46 @@ export class CPU {
     }
 
     return this.registers.setUint16(this.registerMap[name], value);
+  }
+
+  fetch() {
+    const nextInstructionAddress = this.getRegister("ip");
+    const instruction = this.memory.getUint8(nextInstructionAddress);
+    this.setRegister("ip", nextInstructionAddress + 1);
+    return instruction;
+  }
+
+  fetch16() {
+    const nextInstructionAddress = this.getRegister("ip");
+    const instruction = this.memory.getUint16(nextInstructionAddress);
+    this.setRegister("ip", nextInstructionAddress + 2);
+    return instruction;
+  }
+
+  execute(instruction: number) {
+    switch(instruction) {
+      case Instruction.MOV_LIT_R1: {
+        const literal = this.fetch16();
+        this.setRegister("r1", literal);
+        return;
+      }
+      case Instruction.MOV_LIT_R2: {
+        const literal = this.fetch16();
+        this.setRegister("r2", literal);
+        return;
+      }
+      case Instruction.ADD_REG_REG: {
+        const r1 = this.fetch();
+        const r2 = this.fetch();
+        const registerValue1 = this.registers.getUint16(r1 * 2);
+        const registerValue2 = this.registers.getUint16(r2 * 2);
+        this.setRegister("acc", registerValue1 + registerValue2);
+      }
+    }
+  }
+
+  step() {
+    const instruction = this.fetch();
+    return this.execute(instruction);
   }
 };
