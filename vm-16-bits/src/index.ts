@@ -5,7 +5,13 @@ import {
 } from "./libs/episode_01";
 
 
-const memorySize = 256;
+// Specify the memory size.
+const BYTE = (n: number) => n;
+const KILO_BYTE = (n: number) => n * 1024;
+const MEGA_BYTE = (n: number) => n * 1024 * 1024;
+const GIGA_BYTE = (n: number) => n * 1024 * 1024 * 1024;
+
+const memorySize = BYTE(512);
 const memory = createMemory(memorySize);
 const cpu = new CPU(memory);
 
