@@ -1,0 +1,8 @@
+Central Process Unit (CPU)
+
+- Method
+  - fetch
+  - decode
+  - execute
+
+แต่ในกรณีของ VM นี้ิ จะรวบเป็น fetch กับ execute 

@@ -1,0 +1,3 @@
+mov 0x1234 r1
+mov 0xABCD r2
+add r1, r2
