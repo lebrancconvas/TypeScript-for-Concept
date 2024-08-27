@@ -8,6 +8,7 @@ export class CPU {
   registerNames: RegisterName[];
   registers: DataView;
   registerMap: RegisterMap;
+  stackFrameSize: number;
 
   constructor(memory: DataView) {
     this.memory = memory;
@@ -51,7 +52,7 @@ export class CPU {
 
     this.setRegister("sp", (memory.byteLength - 1) - 1); // Set Stack Pointer Register to the last address of memory so but the register use 16-Bits (2 Bytes) so we subtract 1 again.
     this.setRegister("fp", (memory.byteLength - 1) - 1); // Set Frame Pointer Register to the last address of memory so but the register use 16-Bits (2 Bytes) so we subtract 1 again.
-
+    this.stackFrameSize = 0;
   }
 
   debug() {
@@ -62,8 +63,8 @@ export class CPU {
     console.log('================\n');
   }
 
-  viewMemory(address: number) {
-    const nextEightBytes = Array.from({length: 8}, (_, i) => {
+  viewMemory(address: number, n: number = 8) {
+    const nextEightBytes = Array.from({length: n}, (_, i) => {
       return this.memory.getUint8(address + i);
     }).map(memoryData => `0x${memoryData.toString(16).padStart(2, '0')}`);
 
@@ -102,11 +103,50 @@ export class CPU {
     this.setRegister("sp", spAddress - 2);
   }
 
+  pushState() {
+    const registers: RegisterName[] = [
+      "r1", "r2", "r3", "r4", "r5", "r6", "r7", "r8",
+      "ip"
+    ];
+
+    registers.forEach((register: RegisterName) => {
+      this.push(this.getRegister(register));
+    });
+    this.push(this.stackFrameSize + 2);
+
+    this.setRegister("fp", this.getRegister("sp"));
+    this.stackFrameSize = 0;
+  }
+
   pop() {
     const nextSpAddress = this.getRegister("sp") + 2;
     this.setRegister("sp", nextSpAddress);
     const value = this.memory.getUint16(nextSpAddress);
     return value;
+  }
+
+  popState() {
+    const framePointerAddress = this.getRegister("fp");
+    this.setRegister("sp", framePointerAddress);
+
+    this.stackFrameSize = this.pop();
+    const stackFrameSize = this.stackFrameSize;
+
+    const registers: RegisterName[] = [
+      "r1", "r2", "r3", "r4", "r5", "r6", "r7", "r8",
+      "ip"
+    ];
+
+    registers.reverse().forEach((register: RegisterName) => {
+      this.setRegister(register, this.pop());
+    })
+
+    const nArguments = this.pop();
+    for(let i = 0; i < nArguments; i++) {
+      this.pop();
+    }
+
+    this.setRegister("fp", framePointerAddress + stackFrameSize);
   }
 
   execute(instruction: number) {
@@ -169,6 +209,23 @@ export class CPU {
         const registerIndex = this.fetchRegisterIndex();
         const value = this.pop();
         this.registers.setUint16(registerIndex, value);
+        return;
+      }
+      case Instruction.CALL_LIT: {
+        const address = this.fetch16();
+        this.pushState();
+        this.setRegister("ip", address);
+        return;
+      }
+      case Instruction.CALL_REG: {
+        const registerIndex = this.fetchRegisterIndex();
+        const address = this.registers.getUint16(registerIndex);
+        this.pushState();
+        this.setRegister("ip", address);
+        return;
+      }
+      case Instruction.RET: {
+        this.popState();
         return;
       }
       default: {
