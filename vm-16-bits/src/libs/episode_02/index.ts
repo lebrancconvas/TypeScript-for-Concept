@@ -33,7 +33,11 @@ export function ep02() {
     Instruction.MOV_REG_MEM, // mov <reg> <mem>: Move / Assign Register Value to Memory Address.
     ACC, // ACC Register
     0x01,
-    0x00 // 0x0100 -> Memory Address (16-Bits or 2 Bytes)
+    0x00, // 0x0100 -> Memory Address (16-Bits or 2 Bytes)
+
+    Instruction.JMP_NOT_EQ, // jmpne <lit>: Jump to Address if ACC Register Value is Not Equal to Literal Value.
+    0x12,
+    0x34 // 0x1234 -> Literal Value (16-Bits or 2 Bytes)
   ];
 
   for(let i = 0; i < memoryData.length; i++) {
@@ -41,6 +45,11 @@ export function ep02() {
   }
 
   // Execute instructions.
+  cpu.viewMemory(cpu.getRegister("ip"));
+  cpu.viewMemory(0x0100);
+  cpu.debug();
+  cpu.step();
+
   cpu.viewMemory(cpu.getRegister("ip"));
   cpu.viewMemory(0x0100);
   cpu.debug();
