@@ -68,18 +68,10 @@ export class CPU {
   }
 
   getRegister(name: RegisterName): number {
-    if(!(name in this.registerMap)) {
-      throw new Error(`[ERROR] Not Found Register: '${name}'`);
-    }
-
     return this.registers.getUint16(this.registerMap[name]);
   }
 
   setRegister(name: RegisterName, value: number) {
-    if(!(name in this.registerMap)) {
-      throw new Error(`[ERROR] Not Found Register: '${name}'`);
-    }
-
     return this.registers.setUint16(this.registerMap[name], value);
   }
 
