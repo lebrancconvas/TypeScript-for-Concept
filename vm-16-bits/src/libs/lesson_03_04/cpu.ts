@@ -49,6 +49,9 @@ export class CPU {
       return map;
     }, {} as RegisterMap);
 
+    this.setRegister("sp", (memory.byteLength - 1) - 1); // Set Stack Pointer Register to the last address of memory so but the register use 16-Bits (2 Bytes) so we subtract 1 again.
+    this.setRegister("fp", (memory.byteLength - 1) - 1); // Set Frame Pointer Register to the last address of memory so but the register use 16-Bits (2 Bytes) so we subtract 1 again.
+
   }
 
   debug() {
