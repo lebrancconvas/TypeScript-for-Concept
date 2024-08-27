@@ -2,6 +2,6 @@ import { CPU } from "./cpu";
 import { createMemory } from "./memory";
 import { Instruction } from "./instruction";
 
-export function ep03_04() {
+export function lesson03_04() {
 
 };

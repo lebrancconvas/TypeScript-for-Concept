@@ -4,7 +4,7 @@ import { Instruction } from "./instruction";
 
 import { BYTE, KILO_BYTE } from "../../config";
 
-export function ep02() {
+export function lesson02() {
   // Setup components.
   const memorySize = KILO_BYTE(10);
   const memory = createMemory(memorySize);

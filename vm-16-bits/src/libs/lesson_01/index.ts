@@ -9,7 +9,7 @@ import {
 
 // Specify the memory size.
 
-export function ep01() {
+export function lesson01() {
   const memorySize = BYTE(512);
   const memory = createMemory(memorySize);
   const cpu = new CPU(memory);
