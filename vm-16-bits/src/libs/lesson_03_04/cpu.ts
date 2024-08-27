@@ -16,11 +16,14 @@ export class CPU {
      * ip: Instruction Pointer (Program Counter)
      * acc: Accumulator => Store the result from Mathematical Operations (We accumulate the value here)
      * r1, r2, r3, r4, r5, r6, r7, r8: General Purpose Registers
+     * sp: Stack Pointer (Pointer for Stack using on memory)
+     * fp: Frame Pointer (Pointer for Stack Frame using on memory)
      */
     this.registerNames = [
       "ip", "acc",
       "r1", "r2", "r3", "r4",
-      "r5", "r6", "r7", "r8"
+      "r5", "r6", "r7", "r8",
+      "sp", "fp"
     ];
 
     this.registers = createMemory(this.registerNames.length * 2);
@@ -38,6 +41,8 @@ export class CPU {
      * r6: 14
      * r7: 16
      * r8: 18
+     * sp: 20
+     * fp: 22
      */
     this.registerMap = this.registerNames.reduce((map: RegisterMap, name: RegisterName, i: number) => {
       map[name] = i * 2;
