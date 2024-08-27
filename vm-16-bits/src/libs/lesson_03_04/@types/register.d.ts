@@ -8,7 +8,9 @@ export type RegisterName =
   | "r5" // General Purpose 5th Register
   | "r6" // General Purpose 6th Register
   | "r7" // General Purpose 7th Register
-  | "r8"; // General Purpose 8th Register 
+  | "r8" // General Purpose 8th Register
+  | "sp" // Stack Pointer (Pointer for stack in the memory)
+  | "fp"; // Frame Pointer (Pointer for stack frame in the memory)
 
 export type RegisterMap = {
   [key in RegisterName]: number
