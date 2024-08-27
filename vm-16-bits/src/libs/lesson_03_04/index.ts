@@ -82,12 +82,12 @@ export function lesson03_04() {
   cpu.debug();
   cpu.step();
 
-  cpu.viewMemory(cpu.getRegister('ip'));
-  cpu.viewMemory(0xfff8);
+  cpu.viewMemory(pointer);
+  cpu.viewMemory(stackMemory);
   cpu.debug();
   cpu.step();
 
-  cpu.viewMemory(cpu.getRegister('ip'));
-  cpu.viewMemory(0xfff8);
+  cpu.viewMemory(pointer);
+  cpu.viewMemory(stackMemory);
   cpu.debug();
 };
