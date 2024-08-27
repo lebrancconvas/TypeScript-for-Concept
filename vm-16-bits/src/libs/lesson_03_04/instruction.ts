@@ -8,4 +8,7 @@ export enum Instruction {
   PSH_LIT     = 0x17,
   PSH_REG     = 0x18,
   POP         = 0x1a,
+  CALL_LIT    = 0x5e,
+  CALL_REG    = 0x5f,
+  RET         = 0x60
 };
