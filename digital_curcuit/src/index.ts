@@ -1,5 +1,7 @@
 import { Component } from './libs';
 
-const result = Component.byteMaker([0, 0, 0, 0, 1, 1, 1, 1])
+const Gate = Component.Gate;
 
-console.log(result);
+const Mathematic = Component.Arithmatic;
+
+console.log(Mathematic.halfAdder(Gate.Custom.condition(0, 1), Gate.and(1, 1)));
