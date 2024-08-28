@@ -1,5 +1,6 @@
 import { createMemory } from "./memory";
 import { Instruction } from "./instruction";
+import { registerTypes } from "./register";
 import type { RegisterName, RegisterMap } from "./@types";
 
 
@@ -12,21 +13,7 @@ export class CPU {
 
   constructor(memory: DataView) {
     this.memory = memory;
-
-    /**
-     * ip: Instruction Pointer (Program Counter)
-     * acc: Accumulator => Store the result from Mathematical Operations (We accumulate the value here)
-     * r1, r2, r3, r4, r5, r6, r7, r8: General Purpose Registers
-     * sp: Stack Pointer (Pointer for Stack using on memory)
-     * fp: Frame Pointer (Pointer for Stack Frame using on memory)
-     */
-    this.registerNames = [
-      "ip", "acc",
-      "r1", "r2", "r3", "r4",
-      "r5", "r6", "r7", "r8",
-      "sp", "fp"
-    ];
-
+    this.registerNames = registerTypes;
     this.registers = createMemory(this.registerNames.length * 2);
 
     /**
@@ -211,13 +198,13 @@ export class CPU {
         this.registers.setUint16(registerIndex, value);
         return;
       }
-      case Instruction.CALL_LIT: {
+      case Instruction.CAL_LIT: {
         const address = this.fetch16();
         this.pushState();
         this.setRegister("ip", address);
         return;
       }
-      case Instruction.CALL_REG: {
+      case Instruction.CAL_REG: {
         const registerIndex = this.fetchRegisterIndex();
         const address = this.registers.getUint16(registerIndex);
         this.pushState();
@@ -229,6 +216,7 @@ export class CPU {
         return;
       }
       default: {
+        console.log("PROGRAM HALTED!!");
         throw new Error(`[ERROR] Invalid Instruction: 0x${instruction.toString(16).padStart(2, '0')}`);
       }
     }

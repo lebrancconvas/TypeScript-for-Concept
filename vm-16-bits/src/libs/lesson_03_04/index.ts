@@ -2,6 +2,8 @@ import { CPU } from "./cpu";
 import { createMemory } from "./memory";
 import { Instruction } from "./instruction";
 
+import readline from "readline";
+
 import { KILO_BYTE } from "../../config";
 
 export function lesson03_04() {
@@ -26,68 +28,50 @@ export function lesson03_04() {
 
   // Assign Memory Data.
   const writeableBytes = new Uint8Array(memory.buffer);
+  const subroutineAddress = 0x3000;
   const memoryData: number[] = [
-    Instruction.MOV_LIT_REG,
-    0x12,
-    0x34,
-    R1,
-
-    Instruction.MOV_LIT_REG,
-    0xAB,
-    0xCD,
-    R2,
-
-    Instruction.PSH_REG,
-    R1,
-
-    Instruction.PSH_REG,
-    R2,
-
-    Instruction.POP,
-    R1,
-
-    Instruction.POP,
-    R2
+    Instruction.PSH_LIT, 0x00, 0x03,
+    Instruction.PSH_LIT, 0x00, 0x02,
+    Instruction.PSH_LIT, 0x00, 0x01,
+    Instruction.MOV_LIT_REG, 0x12, 0x34, R1,
+    Instruction.MOV_LIT_REG, 0x56, 0x78, R4,
+    Instruction.PSH_LIT, 0x00, 0x00,
+    Instruction.CAL_LIT, (subroutineAddress & 0xff00) >> 8, (subroutineAddress & 0x00ff) >> 8,
+    Instruction.PSH_LIT, 0x44, 0x44,
   ];
   for(let i = 0; i < memoryData.length; i++) {
     writeableBytes[i] = memoryData[i];
   }
 
+  const memorySubroutineData: number[] = [
+    Instruction.PSH_LIT, 0x01, 0x02,
+    Instruction.PSH_LIT, 0x03, 0x04,
+    Instruction.PSH_LIT, 0x05, 0x06,
+    Instruction.MOV_LIT_REG, 0x07, 0x08, R1,
+    Instruction.MOV_LIT_REG, 0x09, 0x0a, R8,
+    Instruction.RET,
+  ];
+  for(let i = subroutineAddress; i < subroutineAddress + memorySubroutineData.length; i++) {
+    writeableBytes[i] = memorySubroutineData[i - subroutineAddress];
+  }
+
   // Execute the program.
   const pointer = cpu.getRegister('ip');
-  const stackMemory = 0xffff - 1 - 6;
+  const stackMemory = 0xffff - 1 - 42;
 
   cpu.viewMemory(pointer);
-  cpu.viewMemory(stackMemory);
+  cpu.viewMemory(stackMemory, 44);
   cpu.debug();
-  cpu.step();
 
-  cpu.viewMemory(pointer);
-  cpu.viewMemory(stackMemory);
-  cpu.debug();
-  cpu.step();
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
 
-  cpu.viewMemory(pointer);
-  cpu.viewMemory(stackMemory);
-  cpu.debug();
-  cpu.step();
-
-  cpu.viewMemory(pointer);
-  cpu.viewMemory(stackMemory);
-  cpu.debug();
-  cpu.step();
-
-  cpu.viewMemory(pointer);
-  cpu.viewMemory(stackMemory);
-  cpu.debug();
-  cpu.step();
-
-  cpu.viewMemory(pointer);
-  cpu.viewMemory(stackMemory);
-  cpu.debug();
-  cpu.step();
-
-  cpu.viewMemory(pointer);
-  cpu.viewMemory(stackMemory);
-  cpu.debug();
+  rl.on('line', () => {
+    cpu.step();
+    cpu.viewMemory(pointer);
+    cpu.viewMemory(stackMemory, 44);
+    cpu.debug();
+  });
 };
