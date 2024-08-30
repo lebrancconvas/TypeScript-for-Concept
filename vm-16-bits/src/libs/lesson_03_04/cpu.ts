@@ -96,12 +96,17 @@ export class CPU {
       "ip"
     ];
 
+    // Push a value from r1-r8 and ip register to stack.
     registers.forEach((register: RegisterName) => {
       this.push(this.getRegister(register));
     });
+    // Push the stack frame size (include this value in the stack frame size).
     this.push(this.stackFrameSize + 2);
 
+    // Set Frame Pointer to the same point as Stack Pointer
     this.setRegister("fp", this.getRegister("sp"));
+
+    // Reset Stack Frame Size to 0.
     this.stackFrameSize = 0;
   }
 
@@ -113,9 +118,13 @@ export class CPU {
   }
 
   popState() {
+    // Get Current Address of Frame Pointer.
     const framePointerAddress = this.getRegister("fp");
+
+    // Set Stack Pointer to Frame Pointer Address.
     this.setRegister("sp", framePointerAddress);
 
+    // Pop the stack frame size value.
     this.stackFrameSize = this.pop();
     const stackFrameSize = this.stackFrameSize;
 
@@ -124,15 +133,20 @@ export class CPU {
       "ip"
     ];
 
+    // Pop the value from ip and r8-r1 register.
     registers.reverse().forEach((register: RegisterName) => {
       this.setRegister(register, this.pop());
     })
 
+    // Pop the number of argument from the stack.
     const nArguments = this.pop();
+
+    // Pop the arguments from the stack.
     for(let i = 0; i < nArguments; i++) {
       this.pop();
     }
 
+    // Move the frame pointer from frame pointer address to the stack frame size.
     this.setRegister("fp", framePointerAddress + stackFrameSize);
   }
 
