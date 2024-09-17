@@ -1,0 +1,21 @@
+psh 0x3333
+psh 0x2222
+psh 0x1111
+
+mov 0x1234, r1
+mov 0x5678, r2
+
+psh 0x0000
+cal my_subroutine:
+psh 0x4444
+
+;; at address 0x3000
+my_subroutine:
+    psh 0x0102
+    psh 0x0304
+    psh 0x0506
+
+    mov 0x0708, r1
+    mov 0x090A, r2
+
+    ret
