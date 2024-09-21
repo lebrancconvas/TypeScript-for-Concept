@@ -36,7 +36,7 @@ export function lesson03_04() {
     Instruction.MOV_LIT_REG, 0x12, 0x34, R1,
     Instruction.MOV_LIT_REG, 0x56, 0x78, R4,
     Instruction.PSH_LIT, 0x00, 0x00,
-    Instruction.CAL_LIT, (subroutineAddress & 0xff00) >> 8, (subroutineAddress & 0x00ff) >> 8,
+    Instruction.CAL_LIT, (subroutineAddress & 0xff00) >> 8, (subroutineAddress & 0x00ff),
     Instruction.PSH_LIT, 0x44, 0x44,
   ];
   for(let i = 0; i < memoryData.length; i++) {
