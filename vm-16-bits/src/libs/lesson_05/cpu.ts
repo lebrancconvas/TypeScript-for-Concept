@@ -1,8 +1,9 @@
 import { createMemory } from "./memory";
 import { Instruction } from "./instruction";
 import { registerTypes } from "./register";
-import type { RegisterName, RegisterMap } from "./@types";
 
+import { MemoryMapper } from "./memory_mapper";
+import type { RegisterName, RegisterMap } from "./@types";
 
 export class CPU {
   memory: DataView;
@@ -11,8 +12,8 @@ export class CPU {
   registerMap: RegisterMap;
   stackFrameSize: number;
 
-  constructor(memory: DataView) {
-    this.memory = memory;
+  constructor(memory: DataView | MemoryMapper) {
+    this.memory = memory as DataView;
     this.registerNames = registerTypes;
     this.registers = createMemory(this.registerNames.length * 2);
 
@@ -37,8 +38,8 @@ export class CPU {
       return map;
     }, {} as RegisterMap);
 
-    this.setRegister("sp", (memory.byteLength - 1) - 1); // Set Stack Pointer Register to the last address of memory so but the register use 16-Bits (2 Bytes) so we subtract 1 again.
-    this.setRegister("fp", (memory.byteLength - 1) - 1); // Set Frame Pointer Register to the last address of memory so but the register use 16-Bits (2 Bytes) so we subtract 1 again.
+    this.setRegister("sp", 0xffff - 1 - 1); // Set Stack Pointer Register to the last address of memory so but the register use 16-Bits (2 Bytes) so we subtract 1 again.
+    this.setRegister("fp", 0xffff - 1 - 1); // Set Frame Pointer Register to the last address of memory so but the register use 16-Bits (2 Bytes) so we subtract 1 again.
     this.stackFrameSize = 0;
   }
 
@@ -229,6 +230,9 @@ export class CPU {
         this.popState();
         return;
       }
+      case Instruction.HLT: {
+        return true;
+      }
       default: {
         console.log("PROGRAM HALTED!!");
         throw new Error(`[ERROR] Invalid Instruction: 0x${instruction.toString(16).padStart(2, '0')}`);
@@ -239,6 +243,14 @@ export class CPU {
   step() {
     const instruction = this.fetch();
     return this.execute(instruction);
+  }
+
+  run() {
+    const halt = this.step();
+
+    if(!halt) {
+      setImmediate(() => this.run());
+    }
   }
 
 };

@@ -10,5 +10,6 @@ export enum Instruction {
   POP         = 0x1a,
   CAL_LIT    = 0x5E,
   CAL_REG    = 0x5F,
-  RET         = 0x60
+  RET         = 0x60,
+  HLT        = 0xff,
 };
