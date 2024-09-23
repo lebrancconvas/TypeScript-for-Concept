@@ -40,6 +40,12 @@ export function lesson05() {
   // Assign Memory Data.
   const writeableBytes = new Uint8Array(memory.buffer);
   let i = 0;
+  /**
+   * Move Unicode to reg and then move value from reg to memory on the screen device region.
+   * @name writeCharToScreen
+   * @param char Character to write to screen.
+   * @param position Positon on device to write the output character to.
+   */
   const writeCharToScreen = (char: string, position: number) => {
     writeableBytes[i++] = Instruction.MOV_LIT_REG;
     writeableBytes[i++] = 0x00;
@@ -52,7 +58,7 @@ export function lesson05() {
     writeableBytes[i++] = position;
   }
 
-  const printOutput = "Hello, World!";
+  const printOutput = "Hello, World!\n";
 
   printOutput.split("").forEach((char, index) => {
     writeCharToScreen(char, index);
@@ -60,5 +66,7 @@ export function lesson05() {
 
   writeableBytes[i++] = Instruction.HLT;
   cpu.run();
+
+  console.log(memoryMapper);
 
 };

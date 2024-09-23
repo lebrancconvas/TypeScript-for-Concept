@@ -10,10 +10,11 @@ export const screenDevice = () => {
       const characterValue = data & 0x00ff;
       const x = (memoryAddress % 16) + 1;
       const y = Math.floor(memoryAddress / 16) + 1;
-      moveTo(x * 2, y);
+      moveTo(x, y);
       const character = String.fromCharCode(characterValue);
       process.stdout.write(character);
     },
     setUint8(memoryAddress: number, data: number) {}
   }
+  
 };
