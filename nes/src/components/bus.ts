@@ -1,12 +1,14 @@
 import { Memory } from "./memory";
+import { CPU } from "./cpu";
 import type { MemoryLike } from "~/@types/components";
 import type { Uint8, Uint16 } from "~/@types/bits";
 
 export class Bus {
   RAM: MemoryLike;
 
-  constructor() {
+  constructor(cpu: CPU) {
     this.RAM = Memory.create(64 * (2 ** 10)); // RAM: 64 KiloBytes (64 KBs)
+    cpu.connectBus(this);
   }
 
   write(address: Uint16, data: Uint8) {
