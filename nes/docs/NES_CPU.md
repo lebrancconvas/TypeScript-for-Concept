@@ -21,6 +21,7 @@
 
 ## Reference
 
+- [[EN: Text] 2A03 Technical Reference (NESdev.org)](https://www.nesdev.org/2A03%20technical%20reference.txt)
 - [[EN: Text] CPU (NESdev Wiki)](https://www.nesdev.org/wiki/Implementing_Mappers_In_Hardware)
 - [[EN: Text] 6502 Instruction (NESdev Wiki)](https://www.nesdev.org/wiki/6502_instructions)
 - [[EN: Text] CPU Addressing Mode (NESdev Wiki)](https://www.nesdev.org/wiki/CPU_addressing_modes)
