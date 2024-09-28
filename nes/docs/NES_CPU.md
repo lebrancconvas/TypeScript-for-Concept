@@ -1,4 +1,4 @@
-# NES CPU
+# NES's Central Processing Unit (CPU)
 
 ## Register
 
