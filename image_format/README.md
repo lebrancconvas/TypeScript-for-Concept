@@ -23,6 +23,15 @@ Learn how to work with Image File Format like JPEG, PNG, GIF, etc.
 - [[EN: Video] The Unreasonable Effectiveness of JPEG: A Signal Processing Approach (Reducible)](https://www.youtube.com/watch?v=0me3guauqOU)
 - [[EN: Video] How Image Compression Works (Leo Isikdogan)](https://www.youtube.com/watch?v=Ba89cI9eIg8)
 
-### PNG (Portable Network Graphics)
+### [PNG (Portable Network Graphics)](https://en.wikipedia.org/wiki/PNG)
 
-### GIF (Graphics Interchange Format)
+- [[EN: Text] PNG (Wikipedia)]()
+- [[EN: E-Book] PNG - The Definitive Guide (libpng)](http://www.libpng.org/pub/png/book/toc.html)
+- [[EN: Text] How PNG Works (Medium: Colt McAnlis)](https://medium.com/@duhroach/how-png-works-f1174e3cc7b7)
+- [[EN: Video] How PNG Works: Compromising Speed for Quality (Reducible)](https://www.youtube.com/watch?v=EFUYNoFRHQI)
+- [[EN: Video] 67 Bytes - The Smallest Possible PNG (And How It Works) (Theo - t3.gg)](https://www.youtube.com/watch?v=-Rdo8KAHgoE)
+
+### [GIF (Graphics Interchange Format)](https://en.wikipedia.org/wiki/GIF)
+
+- [[EN: Text] GIF (Wikipedia)](https://en.wikipedia.org/wiki/GIF)
+- [[EN: Text] GIF Format: Past, Present, and Future (Cloudinary)](https://cloudinary.com/guides/video-formats/gif-format-past-present-and-future)
