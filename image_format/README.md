@@ -25,7 +25,7 @@ Learn how to work with Image File Format like JPEG, PNG, GIF, etc.
 
 ### [PNG (Portable Network Graphics)](https://en.wikipedia.org/wiki/PNG)
 
-- [[EN: Text] PNG (Wikipedia)]()
+- [[EN: Text] PNG (Wikipedia)](https://en.wikipedia.org/wiki/PNG)
 - [[EN: E-Book] PNG - The Definitive Guide (libpng)](http://www.libpng.org/pub/png/book/toc.html)
 - [[EN: Text] How PNG Works (Medium: Colt McAnlis)](https://medium.com/@duhroach/how-png-works-f1174e3cc7b7)
 - [[EN: Video] How PNG Works: Compromising Speed for Quality (Reducible)](https://www.youtube.com/watch?v=EFUYNoFRHQI)
