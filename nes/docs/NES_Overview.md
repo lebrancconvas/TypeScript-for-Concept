@@ -49,6 +49,13 @@
     - Address Bus
       - 16 Bits (2 Bytes) size.
       - Used to communicate address every component in the computer that needs to access or manipulate data
+- **Memory-Mapped Input/Output (Memory-Mapped I/O: MMIO)**
+  - Technique that segment a system's overall memory space into the multiple region and assign each region to a specific I/O Hardware.
+  - NES segments into 4 parts
+    - System RAM (Static RAM: SRAM)
+    - Picture Processing Unit (PPU) I/O Register
+    - Audio Processing Unit (APU) Register
+    - Cartridge
 
 ### Diagram
 
