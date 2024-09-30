@@ -2,6 +2,54 @@
 
 ## Architecture
 
+### Components
+
+- **CPU-Related Components**: Exist on NES's Mainboard
+  - Central Processing Unit (CPU)
+    - Custom Processor based-on MOS 6502
+    - Chip: RP2A03 on NTSC
+    - Chip: RP2A07 on PAL
+    - Lacking Decimal Mode Circuitry
+    - Audio Processing Unit (APU)
+  - CPU System Memory
+    - 2 KiloBytes (2 KBs) Static RAM (SRAM) Chip in NES's Mainboard.
+    - Used to store Mutable Data for a game. (Animation Timer, Player Health, etc.)
+    - Primary Memory when writing a game's algorithm.
+- **PPU-Related Components**: Exist on NES's Mainboard
+  - Picture Processing Unit (PPU)
+    - Associated 2 KiloBytes (2 KBs) Static RAM (SRAM) that can be called "Video RAM (VRAM)"
+      - Hold the Name Table, Attribute Table, and Palettes.
+      - Used by the cartridge to control how a game mirrors name table when performing screen scrolling.
+    - Rendering a game's graphics.
+    - Has a fixed set of functionality that cannot be programmed directly.
+    - Rendering can be modified by way of Memory Mapped I/O Register that can be manipulated by CPU.
+      - Example
+        - PPUCTRL: 0x2000
+        - PPUMASK: 0x2001
+        - PPUSTATUS: 0x2002
+        - PPUDATA: 0x2006
+        - PPUADDR: 0x2007
+- **Cartridge-Related Components**: Exist on NES's Game Cartridge
+  - Game Cartridge
+    - Every Cartridge have program ROM chip
+      - Store the machine code for the game
+      - Character ROM or Character RAM chip that store the tile data aka the tiny 8x8 images that are used to compose the full background and foreground graphics.
+      - Some cartridge have their own general purpose RAM chips that can be accessed directly by the CPU.
+      - In some cases this RAM is kept powered continuously by a small battery soldered onto the cartridge's PCB allowing for the storage and retrieval of save game information.
+      - Many games also contain special chips known as "Mappers" which can be used to change the behavior or output of other chips on the cartridge's PCB programs
+      - Program controls the mappers by way of writing data to specific Memory Mapped I/O Location
+- **Bus**
+  - Group of Wire
+  - It's called "Parallel Bus" when there's more than one line.
+  - It's called "Serial Bus" when there's a single line.
+  - Contains two major buses in NES.
+    - Data Bus
+      - Contains 8 wires (Represent 8 bits)
+      - Used to communicate byte-sized information between the components and an address bus.
+    - Address Bus
+      - 16 Bits (2 Bytes) size.
+      - Used to communicate address every component in the computer that needs to access or manipulate data
+
 ### Diagram
 
 ### Spec
