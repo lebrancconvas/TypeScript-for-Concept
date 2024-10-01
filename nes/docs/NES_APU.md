@@ -2,6 +2,44 @@
 
 ## APU Basic
 
+## Register
+
+### Pulse 1 Channel (Write)
+
+- Address: 0x4000
+  - Bits: DDLC_NNNN
+  - Function:
+- Address: 0x4001
+  - Bits: EPPP_NSSS
+  - Function:
+- Address: 0x4002
+  - Bits: LLLL_LLLL
+  - Function:
+- Address: 0x4003
+  - Bits: LLLL_LHHH
+  - Function:
+
+### Pulse 2 Channel (Write)
+
+- Address: 0x4004
+  - Bits: DDLC_NNNN
+  - Function:
+- Address: 0x4005
+  - Bits: EPPP_NSSS
+  - Function:
+- Address: 0x4006
+  - Bits: LLLL_LLLL
+  - Function:
+- Address: 0x4007
+  - Bits: LLLL_LHHH
+  - Function:
+
+### Triangle Channel (Write)
+
+### Noise Channel (Write)
+
+### DMC Channel (Write)
+
 ## Resources
 
 - [[EN: Text] APU (NESdev Wiki)](https://www.nesdev.org/wiki/APU)
