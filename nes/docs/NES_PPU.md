@@ -9,6 +9,44 @@
   - Purpose:
     - Storing the shapes of background and sprite tiles. + 2 KiloBytes (2 KBs) of RAM in the console to store a map.
 
+## Register
+
+### PPUCTRL
+
+- Address: 0x2000
+
+### PPUMASK
+
+- Address: 0x2001
+
+### PPUSTATUS
+
+- Address: 0x2002
+
+### OAMADDR
+
+- Address: 0x2003
+
+### OAMDATA
+
+- Address: 0x2004
+
+### PPUSCROLL
+
+- Address: 0x2005
+
+### PPUADDR
+
+- Address: 0x2006
+
+### PPUDATA
+
+- Address: 0x2007
+
+### OAMDMA
+
+- Address: 0x4014
+
 ## Resource
 
 - [[EN: Text] PPU (NESdev Wiki)](https://www.nesdev.org/wiki/PPU)
